@@ -100,7 +100,7 @@
 					<ul class="tags interactions">
 						{{#if this.dependencies}}
 						<li class="tag interaction-tag dependency">
-							<span class="interaction-lable">{{ localize "MODMANAGE.Dependencies" }}</span>
+							<span class="interaction-label">{{ localize "MODMANAGE.Dependencies" }}</span>
 							<ul class="interaction-list">
 								{{#each this.dependencies}}
 								<li class="interaction">{{ this }}</li>
@@ -109,19 +109,23 @@
 						</li>
 						{{/if}}
 						{{#if this.conflicts}}
-							<li>
-								<strong>{{ localize "MODMANAGE.Dependencies" }}:</strong>
-								{{#each this.dependencies}}
-									<span class="tag">{{ this }}</span>
+						<li class="tag interaction-tag conflict">
+							<span class="interaction-label">{{ localize "ZAPM.labels.conflicts" }}</span>
+							<ul class="interaction-list">
+								{{#each this.conflicts}}
+									<li class="interaction">{{ this.name }}</li>
 								{{/each}}
-							</li>
+							</ul>
+						</li>
 						{{/if}}
 					</ul>
 				</section>
+				{{#if ../expanded}}
 				<section class="package-description">
 					<h4>{{ localize "ZAPM.labels.packageDescription" }}</h4>
 					{{{this.description}}}
 				</section>
+				{{/if}}
 			</div>
 		</li>
 		{{ else }}
