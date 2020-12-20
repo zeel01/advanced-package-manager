@@ -12,6 +12,7 @@ class AdvancedPackageManager extends ModuleManagement {
 
 		await this.prepareSVGs();
 		this.prepareIcons(data);
+		this.prepareAuthors(data);
 
 		return data;
 	}
