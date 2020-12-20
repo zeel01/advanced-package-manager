@@ -56,3 +56,27 @@
 .zapm .package-list .package {
 	overflow: ;
 }
+.zapm .tag {
+	display: inline-block;
+	max-width: 3.5ch;
+	transition: .5s;
+	overflow: hidden;
+}
+.zapm .tag.version {
+	max-width: 12ch;
+}
+.zapm .tag:hover {
+	max-width: 18ch;
+}
+.zapm .tag .short {
+	display: inline-block;
+}
+.zapm .tag .long {
+	display: none;
+}
+.zapm .tag:hover .short {
+	display: none;
+}
+.zapm .tag:hover .long {
+	display: inline;
+}

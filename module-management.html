@@ -31,22 +31,32 @@
 						<span class="module-title">{{~this.title~}}</span>
 					</label>
 					{{#if this.incompatible }}
-					<span class="tag unknown">{{ this.incompatible }}</span>
-					{{/if}}
-					{{#if this.scripts}}
-					<span class="tag javascript">
-						JavaScript
+					<span class="tag unknown">
+						<span class="short"><i class="fas fa-exclamation-circle"></i></span>
+						<span class="long">{{ this.incompatible }}</span>
 					</span>
-					{{else if this.esmodules}}
-					<span class="tag javascript">JavaScript</span>
+					{{/if}}
+					{{#if (or this.scripts this.esmodules)}}
+					<span class="tag javascript">
+						<span class="short"><i class="fas fa-code"></i></span>
+						<span class="long">JavaScript</span>
+					</span>
 					{{/if}}
 					{{#if this.styles}}
-					<span class="tag css">CSS</span>
+					<span class="tag css">
+						<span class="short"><i class="fas fa-paint-brush"></i></span>
+						<span class="long">CSS</span>
+					</span>
 					{{/if}}
 					{{#if this.packs}}
-					<span class="tag compendium">Compendium</span>
+					<span class="tag compendium">
+						<span class="short"><i class="fas fa-atlas"></i></span>
+						<span class="long">Compendium</span>
+					</span>
 					{{/if}}
-					<span class="tag version">Version {{ this.version }}</span>
+					<span class="tag version">
+						v{{ this.version }}
+					</span>
 				</section>
 				<section class="package-description">
 					{{{this.description}}}
