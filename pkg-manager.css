@@ -90,11 +90,15 @@
 	margin-bottom: .3em;
 	padding-right: .85em;
 	position: relative;
+	user-select: text;
 }
 .zapm h3.author {
 	font-size: .95em;
 	font-style: italic;
 	margin-bottom: .2em;
+}
+.zapm h3.author .author-name {
+	user-select: text;
 }
 
 .zapm .author-label {
