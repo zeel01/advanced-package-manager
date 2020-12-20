@@ -36,7 +36,7 @@ class AdvancedPackageManager extends ModuleManagement {
 			if (!module.media) continue;
 			for (let media of module.media) {
 				if (media.type != "icon") continue;
-				module.icon = media.url;
+				module.icon = media.url || media.link;
 				break;
 			}
 		}
