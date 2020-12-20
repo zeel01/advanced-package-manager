@@ -44,6 +44,9 @@
 					<span class="author-name" title="{{this.author}}">{{this.author}}</span>
 				</h3>
 				<ul class="tags info">
+					<li class="tag version">
+						v{{ this.version }}
+					</li>
 					{{#if this.incompatible }}
 					<li class="tag unknown">
 						<span class="short"><i class="fas fa-exclamation-circle"></i></span>
@@ -68,45 +71,51 @@
 						<span class="long">Compendium</span>
 					</li>
 					{{/if}}
-					<li class="tag version">
-						v{{ this.version }}
-					</li>
-				</ul>
-				<ul class="package-metadata tags links">
 					{{#if this.url}}
-					<li class="tag">
-						<a href="{{this.url}}" target="_blank">
-							<span class="short"><i class="fas fa-globe"></i></span>
-							<span class="long">{{localize "ZAPM.labels.links.website"}}</span>
-						</a>
-					</li>
+						<li class="tag">
+							<a href="{{this.url}}" target="_blank">
+								<span class="short"><i class="fas fa-globe"></i></span>
+								<span class="long">{{localize "ZAPM.labels.links.website"}}</span>
+							</a>
+						</li>
 					{{/if}}
 					{{#if this.readme}}
-					<li class="tag">
-						<a href="{{this.readme}}" target="_blank">
-							<span class="short"><i class="fas fa-scroll"></i></span>
-							<span class="long">{{localize "ZAPM.labels.links.readme"}}</span>
-						</a>
-					</li>
+						<li class="tag">
+							<a href="{{this.readme}}" target="_blank">
+								<span class="short"><i class="fas fa-scroll"></i></span>
+								<span class="long">{{localize "ZAPM.labels.links.readme"}}</span>
+							</a>
+						</li>
 					{{/if}}
 					{{#if this.bugs}}
-					<li class="tag">
-						<a href="{{this.bugs}}" target="_blank">
-							<span class="short"><i class="fas fa-bug"></i></span>
-							<span class="long">{{localize "ZAPM.labels.links.bugs"}}</span>
-						</a>
-					</li>
+						<li class="tag">
+							<a href="{{this.bugs}}" target="_blank">
+								<span class="short"><i class="fas fa-bug"></i></span>
+								<span class="long">{{localize "ZAPM.labels.links.bugs"}}</span>
+							</a>
+						</li>
 					{{/if}}
-					
 				</ul>
+				<ul class="tags interactions">
 					{{#if this.dependencies}}
-					<li>
-						<strong>{{ localize "MODMANAGE.Dependencies" }}:</strong>
-						{{#each this.dependencies}}
-						<span class="tag">{{ this }}</span>
-						{{/each}}
+					<li class="tag interaction-tag dependency">
+						<span class="interaction-lable">{{ localize "MODMANAGE.Dependencies" }}</span>
+						<ul class="interaction-list">
+							{{#each this.dependencies}}
+							<li class="interaction">{{ this }}</li>
+							{{/each}}
+						</ul>
 					</li>
 					{{/if}}
+					{{#if this.conflicts}}
+						<li>
+							<strong>{{ localize "MODMANAGE.Dependencies" }}:</strong>
+							{{#each this.dependencies}}
+								<span class="tag">{{ this }}</span>
+							{{/each}}
+						</li>
+					{{/if}}
+				</ul>
 			</section>
 			<section class="package-description">
 				<div class="expandable" onclick="this.focus()" tabindex="-1">
