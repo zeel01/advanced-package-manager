@@ -109,8 +109,15 @@
 	font-style: italic;
 	margin-bottom: .2em;
 }
+.zapm .author-list {
+	display: inline;
+	list-style: none;
+	/* flex-direction: row; */
+	padding: 0;
+}
 .zapm h3.author .author-name {
 	user-select: text;
+	display: inline;
 }
 
 .zapm .author-label {
