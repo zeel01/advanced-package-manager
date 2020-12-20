@@ -7,4 +7,12 @@ class AdvancedPackageManager extends ModuleManagement {
 	}
 }
 
-Hooks.once("ready", () => new AdvancedPackageManager().render(true));
+Hooks.once("ready", () => {
+	new AdvancedPackageManager().render(true);
+});
+
+Hooks.on("renderAdvancedPackageManager", (manager, html, data) => {
+	console.debug(manager);
+	console.debug(html);
+	console.debug(data);
+});
