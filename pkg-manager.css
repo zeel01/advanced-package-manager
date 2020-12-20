@@ -132,16 +132,14 @@
 	overflow: hidden;
 	margin: 0 0 .3em 0;
 	padding: 0;
+	font-size: 0.7em;
+}
+.zapm .tags.interactions {
+	overflow: visible;
 }
 .zapm .tags a {
 	color: inherit;
 	text-decoration: none;
-}
-.zapm .tags.info {
-	font-size: 0.65em;
-}
-.zapm .tags.links {
-	font-size: .75em;
 }
 .zapm .package .tag {
 	font-size: inherit;
@@ -151,12 +149,25 @@
 	max-width: 4ch;
 	transition: .5s;
 	overflow: hidden;
+	white-space: nowrap;
 }
 .zapm .package .tag.version {
-	max-width: 12ch;
+	max-width: initial;
+	user-select: text;
+}
+.zapm .package .tag.interaction-tag {
+	max-width: initial;
+	position: relative;
+	overflow: visible;
+}
+.zapm .tag.dependency {
+	background: blue;
+}
+.zapm .tag.conflict {
+	background: red;
 }
 .zapm .package .tag:hover {
-	max-width: 18ch;
+	max-width: 20ch;
 }
 .zapm .package .tag .short {
 	display: inline-block;
@@ -169,4 +180,19 @@
 }
 .zapm .package .tag:hover .long {
 	display: inline;
+}
+.zapm .tag .interaction-list {
+	position: absolute;
+	z-index: 1;
+	border: inherit;
+	border-radius: 3px;
+	padding: 0 3px;
+	margin: 0 0 0 -4px;
+	text-decoration: none;
+	background: inherit;
+	color: #f0f0e0;
+	visibility: hidden;
+}
+.zapm .tag:hover .interaction-list {
+	visibility: visible;
 }
