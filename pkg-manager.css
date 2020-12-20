@@ -47,8 +47,8 @@
 .zapm .package-description::-webkit-scrollbar-thumb {
 	outline: none;
 	border-radius: 3px;
-	background: black;
-	border: 1px solid gray;
+	background: #00000022;
+	border: none;
 }
 .zapm .package-image {
 	grid-row: 1;
@@ -63,7 +63,7 @@
 	border-radius: .2em;
 }
 .zapm svg.module-icon {
-	fill: #939393;
+	fill: #00000030;
 }
 .zapm .package .package-overview {
 	grid-row: 1;
