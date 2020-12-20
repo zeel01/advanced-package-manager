@@ -28,31 +28,13 @@
 	grid-column: 1 / -1;
 	line-height: 1.2em;
 	height: 4.8em;
-	/* margin-bottom: -.1em; */
 	position: relative;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
-.zapm .package-description .expandable {
-	height: 4.8em;
-	overflow: hidden;
-	position: absolute;
-	--mask-image: linear-gradient(to bottom, black 3em, transparent);
-	-webkit-mask-image: var(--mask-image);
-	mask-image: var(--mask-image);
-	transition: box-shadow .3s;
-	cursor: pointer;
-}
-.zapm .package-description .expandable:focus {
-	background: url(../../ui/parchment.jpg) repeat;
-	height: auto;
-	min-height: 6em;
-	overflow: initial;
-	-webkit-mask-image: unset;
-	mask-image: unset;
-	box-shadow: 0 7px 12px -6px #0000004f;
-	padding: 4px;
-	margin: -4px;
-	outline: none;
-	cursor: initial;
+.zapm .package .package-description,
+.zapm .package .package-description * {
+	user-select: text;
 }
 .zapm .package .package-description h4 {
 	font-weight: bold;
@@ -61,6 +43,12 @@
 }
 .zapm .package .package-description h4:after {
 	content: ":";
+}
+.zapm .package-description::-webkit-scrollbar-thumb {
+	outline: none;
+	border-radius: 3px;
+	background: black;
+	border: 1px solid gray;
 }
 .zapm .package-image {
 	grid-row: 1;
