@@ -17,72 +17,70 @@
 	<ul id="module-list" class="directory-list package-list">
 		{{#each modules}}
 		<li class="package {{css}}" data-module-name="{{this.name}}">
-			{{~#if this.icon}}
 			<figure class="package-image">
-				<img class="module-icon" src="{{this.icon}}">
+				<img class="module-icon" 
+					src="{{~#if this.icon}}{{this.icon}}{{else}}icons/svg/mystery-man.svg{{/if~}}">
 			</figure>
-			{{/if~}}
-			<section class="package-info">
-				<section class="package-overview">
-					<label class="package-title checkbox">
-						<figure class="package-toggle">
-							<input type="checkbox" class="active" name="{{this.name}}" data-dtype="Boolean" {{checked this.active}}/>
-						</figure>
-						<span class="module-title">{{~this.title~}}</span>
-					</label>
-					<ul class="tags">
-						{{#if this.incompatible }}
-						<li class="tag unknown">
-							<span class="short"><i class="fas fa-exclamation-circle"></i></span>
-							<span class="long">{{ this.incompatible }}</span>
-						</li>
-						{{/if}}
-						{{#if (or this.scripts this.esmodules)}}
-						<li class="tag javascript">
-							<span class="short"><i class="fas fa-code"></i></span>
-							<span class="long">JavaScript</span>
-						</li>
-						{{/if}}
-						{{#if this.styles}}
-						<li class="tag css">
-							<span class="short"><i class="fas fa-paint-brush"></i></span>
-							<span class="long">CSS</span>
-						</li>
-						{{/if}}
-						{{#if this.packs}}
-						<li class="tag compendium">
-							<span class="short"><i class="fas fa-atlas"></i></span>
-							<span class="long">Compendium</span>
-						</li>
-						{{/if}}
-						<li class="tag version">
-							v{{ this.version }}
-						</li>
-					</ul>
-				</section>
-				<section class="package-description">
-					{{{this.description}}}
-					<ul class="package-metadata">
-						<li><strong>{{localize "Author"}}:</strong> <span class="author">{{this.author}}</span></li>
-						{{#if this.url}}
-						<li><a href="{{this.url}}" target="_blank"><strong>{{localize "URL"}}</a></strong></li>
-						{{/if}}
-						{{#if this.readme}}
-						<li><strong><a href="{{this.readme}}" target="_blank">{{localize "MODMANAGE.Readme"}}</a></strong></li>
-						{{/if}}
-						{{#if this.bugs}}
-						<li><strong><a href="{{this.bugs}}" target="_blank">{{localize "MODMANAGE.Bugs"}}</a></strong></li>
-						{{/if}}
-						{{#if this.dependencies}}
-						<li>
-							<strong>{{ localize "MODMANAGE.Dependencies" }}:</strong>
-							{{#each this.dependencies}}
-							<span class="tag">{{ this }}</span>
-							{{/each}}
-						</li>
-						{{/if}}
-					</ul>
-				</section>
+			<section class="package-overview">
+				<label class="package-title checkbox">
+					<figure class="package-toggle">
+						<input type="checkbox" class="active" name="{{this.name}}" data-dtype="Boolean" {{checked this.active}}/>
+					</figure>
+					<span class="module-title">{{~this.title~}}</span>
+				</label>
+				<ul class="tags">
+					{{#if this.incompatible }}
+					<li class="tag unknown">
+						<span class="short"><i class="fas fa-exclamation-circle"></i></span>
+						<span class="long">{{ this.incompatible }}</span>
+					</li>
+					{{/if}}
+					{{#if (or this.scripts this.esmodules)}}
+					<li class="tag javascript">
+						<span class="short"><i class="fas fa-code"></i></span>
+						<span class="long">JavaScript</span>
+					</li>
+					{{/if}}
+					{{#if this.styles}}
+					<li class="tag css">
+						<span class="short"><i class="fas fa-paint-brush"></i></span>
+						<span class="long">CSS</span>
+					</li>
+					{{/if}}
+					{{#if this.packs}}
+					<li class="tag compendium">
+						<span class="short"><i class="fas fa-atlas"></i></span>
+						<span class="long">Compendium</span>
+					</li>
+					{{/if}}
+					<li class="tag version">
+						v{{ this.version }}
+					</li>
+				</ul>
+				<ul class="package-metadata">
+					<li><strong>{{localize "Author"}}:</strong> <span class="author">{{this.author}}</span></li>
+					{{#if this.url}}
+					<li><a href="{{this.url}}" target="_blank"><strong>{{localize "URL"}}</a></strong></li>
+					{{/if}}
+					{{#if this.readme}}
+					<li><strong><a href="{{this.readme}}" target="_blank">{{localize "MODMANAGE.Readme"}}</a></strong></li>
+					{{/if}}
+					{{#if this.bugs}}
+					<li><strong><a href="{{this.bugs}}" target="_blank">{{localize "MODMANAGE.Bugs"}}</a></strong></li>
+					{{/if}}
+					{{#if this.dependencies}}
+					<li>
+						<strong>{{ localize "MODMANAGE.Dependencies" }}:</strong>
+						{{#each this.dependencies}}
+						<span class="tag">{{ this }}</span>
+						{{/each}}
+					</li>
+					{{/if}}
+				</ul>
+			</section>
+			<section class="package-description">
+				{{{this.description}}}
+				
 			</section>
 		</li>
 		{{ else }}

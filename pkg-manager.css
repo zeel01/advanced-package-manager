@@ -1,4 +1,29 @@
+.zapm .package-list {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 1em 1em;
+	align-content: start;
+}
+
+.zapm .package {
+	position: relative;
+	display: grid;
+	gap: 4px 4px;
+	grid-template-rows: auto 1fr;
+	grid-template-columns: 1em 6em 1fr;
+	padding: 4px 4px 4px 4px;
+	border: 1px solid #80808066;
+}
+.zapm .package-info {
+	padding-left: 4px;
+}
+.zapm .package .package-description {
+	grid-row: 2;
+	grid-column: 1 / -1;
+}
 .zapm .package-image {
+	grid-row: 1;
+	grid-column: 2;
 	margin: 0;
 	width: 6em;
 }
@@ -8,28 +33,15 @@
 	object-fit: contain;
 	border: none;
 }
+.zapm .package .package-overview {
+	/* flex: 1; */
+	grid-row: 1;
+	grid-column-start: 3;
+	grid-column-end: -1;
+	/* grid-column: auto; */
+}
 .zapm .package-title {
 	display: flex;
-}
-
-.zapm .package-list {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 1em 1em;
-}
-
-.zapm .package {
-	position: relative;
-	display: flex;
-	flex-direction: row;
-	padding: 4px 4px 4px 1.5em;
-	border: 1px solid #80808066;
-}
-.zapm .package-info {
-	padding-left: 4px;
-	flex: 1;
-	display: flex;
-	flex-direction: column;
 }
 .zapm .package-toggle {
 	position: absolute;
@@ -43,19 +55,12 @@
 	width: 1em;
 }
 
-.zapm .package .package-description {
-	flex: 1;
-}
+
 .zapm .package-metadata {
 	list-style: none;
 }
-.zapm .package .package-overview {
-	flex: 1;
-}
 
-.zapm .package-list .package {
-	overflow: ;
-}
+
 .zapm .tags {
 	display: flex;
 	flex-direction: row;
