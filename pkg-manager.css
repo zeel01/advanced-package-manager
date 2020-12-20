@@ -39,10 +39,10 @@
 	grid-row: 2;
 	grid-column: 1 / -1;
 	line-height: 1.2em;
-	height: 4.8em;
+	max-height: 6em;
+	/* height: 4.8em; */
 	position: relative;
-	overflow-y: scroll;
-	overflow-x: hidden;
+	overflow-y: auto;
 }
 .zapm .package .package-description,
 .zapm .package .package-description * {
@@ -69,7 +69,7 @@
 }
 .zapm .module-icon {
 	width: 100%;
-	height: auto;
+	height: 100%;
 	object-fit: contain;
 	border: none;
 	border-radius: .2em;
@@ -119,6 +119,7 @@
 	user-select: text;
 	display: inline;
 }
+
 
 .zapm .author-label {
 	font-weight: bold;
@@ -210,6 +211,12 @@
 	background: inherit;
 	color: #f0f0e0;
 	visibility: hidden;
+}
+.zapm .package .tag .interaction-list {
+	bottom: 1.6em;
+}
+.zapm .package.expanded .tag .interaction-list {
+	bottom: unset;
 }
 .zapm .tag:hover .interaction-list {
 	visibility: visible;
