@@ -60,6 +60,7 @@
 	height: auto;
 	object-fit: contain;
 	border: none;
+	border-radius: .2em;
 }
 .zapm svg.module-icon {
 	fill: #939393;
