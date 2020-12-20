@@ -22,6 +22,15 @@ class AdvancedPackageManager extends ModuleManagement {
 			"modules/advanced-package-manager/assets/cardboard-box-closed.hbs"
 		]);
 	}
+	
+	prepareAuthors(data) {
+		for (let module of data.modules) {
+			if (module.authors?.length) continue;
+			module.authors = [
+				{ "name": module.author }
+			];
+		}
+	}
 	prepareIcons(data) {
 		for (let module of data.modules) {
 			if (!module.media) continue;

@@ -41,8 +41,22 @@
 						</h2>
 					</label>
 					<h3 class="author">
-						<span class="author-label">{{localize "Author"}}</span>
-						<span class="author-name" title="{{this.author}}">{{this.author}}</span>
+						<span class="author-label">
+							{{~#if (gt this.authors.length 1)}}
+								{{~localize "ZAPM.labels.author.plural"~}}
+							{{else}}
+								{{~localize "ZAPM.labels.author.single"~}}
+							{{/if~}}
+						</span>
+						<ul class="author-list">
+							{{#each this.authors~}}
+								<li class="author-name" title="{{this.name}}">
+									{{~#if @index}}, {{/if~}}
+									{{~#if (and @index @last)}}{{ localize "ZAPM.labels.author.conjunction" }}{{/if~}}
+									{{~this.name~}}
+								</li>
+							{{~/each}}
+						</ul>
 					</h3>
 					<ul class="tags info">
 						<li class="tag version">
