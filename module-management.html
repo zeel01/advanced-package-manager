@@ -18,8 +18,13 @@
 		{{#each modules}}
 		<li class="package {{css}}" data-module-name="{{this.name}}">
 			<figure class="package-image">
-				<img class="module-icon" 
-					src="{{~#if this.icon}}{{this.icon}}{{else}}icons/svg/mystery-man.svg{{/if~}}">
+				{{~#if this.icon}}
+					<img class="module-icon" src="{{this.icon}}">
+				{{else if this.active}}
+					{{> "modules/advanced-package-manager/assets/cardboard-box.hbs"}}
+				{{else}}
+					{{> "modules/advanced-package-manager/assets/cardboard-box-closed.hbs"}}
+				{{/if~}}
 			</figure>
 			<section class="package-overview">
 				<label class="package-title checkbox">

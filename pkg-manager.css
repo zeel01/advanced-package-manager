@@ -33,6 +33,9 @@
 	object-fit: contain;
 	border: none;
 }
+.zapm svg.module-icon {
+	fill: #939393;
+}
 .zapm .package .package-overview {
 	/* flex: 1; */
 	grid-row: 1;

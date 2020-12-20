@@ -10,11 +10,16 @@ class AdvancedPackageManager extends ModuleManagement {
 	async getData() {
 		const data = super.getData();
 
+		await this.prepareSVGs();
 		this.prepareIcons(data);
 
 		return data;
 	}
 
+	async prepareSVGs() {
+		await renderTemplate("modules/advanced-package-manager/assets/cardboard-box.hbs", {});
+		await renderTemplate("modules/advanced-package-manager/assets/cardboard-box-closed.hbs", {});
+	}
 	prepareIcons(data) {
 		for (let module of data.modules) {
 			if (!module.media) continue;
