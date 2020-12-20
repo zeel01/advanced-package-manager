@@ -30,33 +30,35 @@
 						</figure>
 						<span class="module-title">{{~this.title~}}</span>
 					</label>
-					{{#if this.incompatible }}
-					<span class="tag unknown">
-						<span class="short"><i class="fas fa-exclamation-circle"></i></span>
-						<span class="long">{{ this.incompatible }}</span>
-					</span>
-					{{/if}}
-					{{#if (or this.scripts this.esmodules)}}
-					<span class="tag javascript">
-						<span class="short"><i class="fas fa-code"></i></span>
-						<span class="long">JavaScript</span>
-					</span>
-					{{/if}}
-					{{#if this.styles}}
-					<span class="tag css">
-						<span class="short"><i class="fas fa-paint-brush"></i></span>
-						<span class="long">CSS</span>
-					</span>
-					{{/if}}
-					{{#if this.packs}}
-					<span class="tag compendium">
-						<span class="short"><i class="fas fa-atlas"></i></span>
-						<span class="long">Compendium</span>
-					</span>
-					{{/if}}
-					<span class="tag version">
-						v{{ this.version }}
-					</span>
+					<ul class="tags">
+						{{#if this.incompatible }}
+						<li class="tag unknown">
+							<span class="short"><i class="fas fa-exclamation-circle"></i></span>
+							<span class="long">{{ this.incompatible }}</span>
+						</li>
+						{{/if}}
+						{{#if (or this.scripts this.esmodules)}}
+						<li class="tag javascript">
+							<span class="short"><i class="fas fa-code"></i></span>
+							<span class="long">JavaScript</span>
+						</li>
+						{{/if}}
+						{{#if this.styles}}
+						<li class="tag css">
+							<span class="short"><i class="fas fa-paint-brush"></i></span>
+							<span class="long">CSS</span>
+						</li>
+						{{/if}}
+						{{#if this.packs}}
+						<li class="tag compendium">
+							<span class="short"><i class="fas fa-atlas"></i></span>
+							<span class="long">Compendium</span>
+						</li>
+						{{/if}}
+						<li class="tag version">
+							v{{ this.version }}
+						</li>
+					</ul>
 				</section>
 				<section class="package-description">
 					{{{this.description}}}
