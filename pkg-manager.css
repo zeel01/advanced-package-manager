@@ -56,27 +56,37 @@
 .zapm .package-list .package {
 	overflow: ;
 }
-.zapm .tag {
+.zapm .tags {
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+.zapm .package .tag {
+	font-size: .65em;
+	line-height: 1.5em;
+	height: 1.5em;
 	display: inline-block;
-	max-width: 3.5ch;
+	max-width: 4ch;
 	transition: .5s;
 	overflow: hidden;
 }
-.zapm .tag.version {
+.zapm .package .tag.version {
 	max-width: 12ch;
 }
-.zapm .tag:hover {
+.zapm .package .tag:hover {
 	max-width: 18ch;
 }
-.zapm .tag .short {
+.zapm .package .tag .short {
 	display: inline-block;
 }
-.zapm .tag .long {
+.zapm .package .tag .long {
 	display: none;
 }
-.zapm .tag:hover .short {
+.zapm .package .tag:hover .short {
 	display: none;
 }
-.zapm .tag:hover .long {
+.zapm .package .tag:hover .long {
 	display: inline;
 }
