@@ -1,5 +1,4 @@
-<form autocomplete="off">
-	<h1>Advanced Package Manager</h1>
+<form class="zapm" autocomplete="off">
 	<p class="notes">
 		{{#if editable }}
 		{{localize 'MODMANAGE.Instructions'}}
@@ -13,61 +12,66 @@
 		{{#each filters}}
 		<a class="filter{{ this.css }}" data-filter="{{ this.id }}">{{ this.label }} ({{ this.count }})</a>
 		{{/each}}
-		<button type="button" class="expand">
-			<i class="fa {{#if expanded}}fa-angle-double-down{{ else }}fa-angle-double-up{{/if}}"></i>
-		</button>
 	</nav>
 
 	<ul id="module-list" class="directory-list package-list">
 		{{#each modules}}
-		<li class="package flexcol{{css}}" data-module-name="{{this.name}}">
-			<div class="package-overview flexrow">
-				<label class="package-title checkbox">
-					<input type="checkbox" class="active" name="{{this.name}}" data-dtype="Boolean" {{checked this.active}}/>
-					{{~this.title~}}
-				</label>
-				{{#if this.incompatible }}
-				<span class="tag unknown">{{ this.incompatible }}</span>
-				{{/if}}
-				{{#if this.scripts}}
-				<span class="tag javascript">JavaScript</span>
-				{{else if this.esmodules}}
-				<span class="tag javascript">JavaScript</span>
-				{{/if}}
-				{{#if this.styles}}
-				<span class="tag css">CSS</span>
-				{{/if}}
-				{{#if this.packs}}
-				<span class="tag compendium">Compendium</span>
-				{{/if}}
-				<span class="tag version">Version {{ this.version }}</span>
-			</div>
-
-			{{#if ../expanded}}
-			<div class="package-description">
-				{{{this.description}}}
-				<ul class="package-metadata">
-					<li><strong>{{localize "Author"}}:</strong> <span class="author">{{this.author}}</span></li>
-					{{#if this.url}}
-					<li><strong>{{localize "URL"}}:</strong> <a href="{{this.url}}" target="_blank">{{this.url}}</a></li>
+		<li class="package {{css}}" data-module-name="{{this.name}}">
+			{{~#if this.icon}}
+			<figure class="package-image">
+				<img class="module-icon" src="{{this.icon}}">
+			</figure>
+			{{/if~}}
+			<section class="package-info">
+				<section class="package-overview">
+					<label class="package-title checkbox">
+						<figure class="package-toggle">
+							<input type="checkbox" class="active" name="{{this.name}}" data-dtype="Boolean" {{checked this.active}}/>
+						</figure>
+						<span class="module-title">{{~this.title~}}</span>
+					</label>
+					{{#if this.incompatible }}
+					<span class="tag unknown">{{ this.incompatible }}</span>
 					{{/if}}
-					{{#if this.readme}}
-					<li><strong>{{localize "MODMANAGE.Readme"}}:</strong> <a href="{{this.readme}}" target="_blank">{{this.readme}}</a></li>
+					{{#if this.scripts}}
+					<span class="tag javascript">
+						JavaScript
+					</span>
+					{{else if this.esmodules}}
+					<span class="tag javascript">JavaScript</span>
 					{{/if}}
-					{{#if this.bugs}}
-					<li><strong>{{localize "MODMANAGE.Bugs"}}:</strong> <a href="{{this.bugs}}" target="_blank">{{this.bugs}}</a></li>
+					{{#if this.styles}}
+					<span class="tag css">CSS</span>
 					{{/if}}
-					{{#if this.dependencies}}
-					<li>
-						<strong>{{ localize "MODMANAGE.Dependencies" }}:</strong>
-						{{#each this.dependencies}}
-						<span class="tag">{{ this }}</span>
-						{{/each}}
-					</li>
+					{{#if this.packs}}
+					<span class="tag compendium">Compendium</span>
 					{{/if}}
-				</ul>
-			</div>
-			{{/if}}
+					<span class="tag version">Version {{ this.version }}</span>
+				</section>
+				<section class="package-description">
+					{{{this.description}}}
+					<ul class="package-metadata">
+						<li><strong>{{localize "Author"}}:</strong> <span class="author">{{this.author}}</span></li>
+						{{#if this.url}}
+						<li><a href="{{this.url}}" target="_blank"><strong>{{localize "URL"}}</a></strong></li>
+						{{/if}}
+						{{#if this.readme}}
+						<li><strong><a href="{{this.readme}}" target="_blank">{{localize "MODMANAGE.Readme"}}</a></strong></li>
+						{{/if}}
+						{{#if this.bugs}}
+						<li><strong><a href="{{this.bugs}}" target="_blank">{{localize "MODMANAGE.Bugs"}}</a></strong></li>
+						{{/if}}
+						{{#if this.dependencies}}
+						<li>
+							<strong>{{ localize "MODMANAGE.Dependencies" }}:</strong>
+							{{#each this.dependencies}}
+							<span class="tag">{{ this }}</span>
+							{{/each}}
+						</li>
+						{{/if}}
+					</ul>
+				</section>
+			</section>
 		</li>
 		{{ else }}
 		<p class="notes">{{ localize "MODMANAGE.None" }}</p>
