@@ -17,8 +17,10 @@ class AdvancedPackageManager extends ModuleManagement {
 	}
 
 	async prepareSVGs() {
-		await renderTemplate("modules/advanced-package-manager/assets/cardboard-box.hbs", {});
-		await renderTemplate("modules/advanced-package-manager/assets/cardboard-box-closed.hbs", {});
+		await loadTemplates([
+			"modules/advanced-package-manager/assets/cardboard-box.hbs",
+			"modules/advanced-package-manager/assets/cardboard-box-closed.hbs"
+		]);
 	}
 	prepareIcons(data) {
 		for (let module of data.modules) {
