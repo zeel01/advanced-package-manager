@@ -68,7 +68,6 @@
 .zapm .package .package-overview {
 	grid-row: 1;
 	grid-column: 2 / -1;
-	overflow: hidden;
 }
 .zapm .package-list .package .package-overview .package-title {
 	text-decoration: none;
