@@ -7,7 +7,13 @@
 				"readme": "Module Instructions",
 				"bugs": "Report Bugs & Issues"
 			},
-			"packageDescription": "Module Description"
+			"author": {
+				"single": "Author",
+				"plural": "Authors",
+				"conjunction": "and "
+			},
+			"packageDescription": "Module Description",
+			"conflicts": "Conflicts"
 		}
 	}
 }
