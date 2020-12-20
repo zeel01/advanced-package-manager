@@ -8,13 +8,14 @@
 .zapm .package {
 	display: grid;
 	gap: 4px 4px;
-	grid-template-rows: auto 1fr;
-	grid-template-columns: 6em 1fr;
+	grid-template-rows: 5em 1fr;
+	grid-template-columns: 5em minmax(0, 1fr);
 	padding: 4px 4px 4px 4px;
 	border: none;
-	/* overflow: hidden; */
+	overflow: hidden;
 	transition: box-shadow .5s;
 	box-shadow: 0 0 12px -6px #00000073;
+	border-radius: 0.2em;
 }
 .zapm .package:hover {
 	box-shadow: 0 0 12px -6px #000000DD;
