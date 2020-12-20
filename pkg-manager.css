@@ -58,21 +58,30 @@
 	width: 1em;
 }
 
-
-.zapm .package-metadata {
+#module-management .zapm .package-list .package .package-metadata {
+	flex: none;
 	list-style: none;
 }
-
 
 .zapm .tags {
 	display: flex;
 	flex-direction: row;
 	overflow: hidden;
-	margin: 0;
+	margin: 0 0 .3em 0;
 	padding: 0;
 }
+.zapm .tags a {
+	color: inherit;
+	text-decoration: none;
+}
+.zapm .tags.info {
+	font-size: 0.65em;
+}
+.zapm .tags.links {
+	font-size: .75em;
+}
 .zapm .package .tag {
-	font-size: .65em;
+	font-size: inherit;
 	line-height: 1.5em;
 	height: 1.5em;
 	display: inline-block;
