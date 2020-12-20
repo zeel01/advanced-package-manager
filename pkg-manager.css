@@ -11,8 +11,13 @@
 	grid-template-rows: auto 1fr;
 	grid-template-columns: 6em 1fr;
 	padding: 4px 4px 4px 4px;
-	border: 1px solid #80808066;
+	border: none;
 	/* overflow: hidden; */
+	transition: box-shadow .5s;
+	box-shadow: 0 0 12px -6px #00000073;
+}
+.zapm .package:hover {
+	box-shadow: 0 0 12px -6px #000000DD;
 }
 .zapm .package-info {
 	padding-left: 4px;
@@ -20,6 +25,41 @@
 .zapm .package .package-description {
 	grid-row: 2;
 	grid-column: 1 / -1;
+	line-height: 1.2em;
+	height: 4.8em;
+	/* margin-bottom: -.1em; */
+	position: relative;
+}
+.zapm .package-description .expandable {
+	height: 4.8em;
+	overflow: hidden;
+	position: absolute;
+	--mask-image: linear-gradient(to bottom, black 3em, transparent);
+	-webkit-mask-image: var(--mask-image);
+	mask-image: var(--mask-image);
+	transition: box-shadow .3s;
+	cursor: pointer;
+}
+.zapm .package-description .expandable:focus {
+	background: url(../../ui/parchment.jpg) repeat;
+	height: auto;
+	min-height: 6em;
+	overflow: initial;
+	-webkit-mask-image: unset;
+	mask-image: unset;
+	box-shadow: 0 7px 12px -6px #0000004f;
+	padding: 4px;
+	margin: -4px;
+	outline: none;
+	cursor: initial;
+}
+.zapm .package .package-description h4 {
+	font-weight: bold;
+	display: inline-block;
+	margin: 0;
+}
+.zapm .package .package-description h4:after {
+	content: ":";
 }
 .zapm .package-image {
 	grid-row: 1;

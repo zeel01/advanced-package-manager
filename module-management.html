@@ -109,8 +109,10 @@
 					{{/if}}
 			</section>
 			<section class="package-description">
-				<h4>{{ localize "ZAPM.labels.packageDescription" }}</h4>
-				{{{this.description}}}
+				<div class="expandable" onclick="this.focus()" tabindex="-1">
+					<h4>{{ localize "ZAPM.labels.packageDescription" }}</h4>
+					{{{this.description}}}
+				</div>
 			</section>
 		</li>
 		{{ else }}
