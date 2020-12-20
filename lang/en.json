@@ -1,5 +1,13 @@
 {
 	"ZAPM": {
-		"title": "Advanced Package Manager"
+		"title": "Advanced Package Manager",
+		"labels": {
+			"links": {
+				"website": "Module Website",
+				"readme": "Module Instructions",
+				"bugs": "Report Bugs & Issues"
+			},
+			"packageDescription": "Module Description"
+		}
 	}
 }
