@@ -3,7 +3,7 @@ class AdvancedPackageManager extends ModuleManagement {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			template: "modules/advanced-package-manager/module-management.html",
-			width: 1000
+			width: 1080
 		});
 	}
 
