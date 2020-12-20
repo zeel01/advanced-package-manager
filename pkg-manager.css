@@ -8,7 +8,7 @@
 .zapm .package {
 	display: grid;
 	gap: 4px 4px;
-	grid-template-rows: 5em 1fr;
+	grid-template-rows: 5em;
 	grid-template-columns: 5em minmax(0, 1fr);
 	padding: 4px 4px 4px 4px;
 	border: none;
@@ -16,6 +16,18 @@
 	transition: box-shadow .5s;
 	box-shadow: 0 0 12px -6px #00000073;
 	border-radius: 0.2em;
+	height: 100%;
+}
+.zapm .package.expanded {
+	grid-template-rows: 5em 1fr;
+}
+.zapm .package.expanded::before {
+	content: " ";
+	grid-row: 1;
+	grid-column: 1 / -1;
+	border-bottom: 1px solid #b5b3a4;
+	margin: 0 4px -2px 4px;
+	box-shadow: 0px 10px 20px -20px #00000082;
 }
 .zapm .package:hover {
 	box-shadow: 0 0 12px -6px #000000DD;

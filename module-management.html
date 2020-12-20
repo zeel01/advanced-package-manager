@@ -12,12 +12,15 @@
 		{{#each filters}}
 		<a class="filter{{ this.css }}" data-filter="{{ this.id }}">{{ this.label }} ({{ this.count }})</a>
 		{{/each}}
+		<button type="button" class="expand">
+			<i class="fa {{#if expanded}}fa-angle-double-down{{ else }}fa-angle-double-up{{/if}}"></i>
+		</button>
 	</nav>
 
 	<ul id="module-list" class="directory-list package-list">
 		{{#each modules}}
 		<li>
-			<div class="package {{css}}" data-module-name="{{this.name}}">
+			<div class="package{{css}}{{#if ../expanded}} expanded{{/if}}" data-module-name="{{this.name}}">
 				<figure class="package-image">
 					{{~#if this.icon}}
 						<img class="module-icon" src="{{this.icon}}">
