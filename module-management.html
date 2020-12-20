@@ -28,12 +28,22 @@
 			</figure>
 			<section class="package-overview">
 				<label class="package-title checkbox">
-					<figure class="package-toggle">
-						<input type="checkbox" class="active" name="{{this.name}}" data-dtype="Boolean" {{checked this.active}}/>
-					</figure>
-					<span class="module-title">{{~this.title~}}</span>
+					<h2 class="module-title">
+						{{~this.title~}}
+						<figure class="package-toggle">
+							<input type="checkbox" 
+								class="active" 
+								name="{{this.name}}" 
+								data-dtype="Boolean" 
+								{{checked this.active}}/>
+						</figure>
+					</h2>
 				</label>
-				<ul class="tags">
+				<h3 class="author">
+					<span class="author-label">{{localize "Author"}}</span>
+					<span class="author-name" title="{{this.author}}">{{this.author}}</span>
+				</h3>
+				<ul class="tags info">
 					{{#if this.incompatible }}
 					<li class="tag unknown">
 						<span class="short"><i class="fas fa-exclamation-circle"></i></span>
@@ -62,17 +72,33 @@
 						v{{ this.version }}
 					</li>
 				</ul>
-				<ul class="package-metadata">
-					<li><strong>{{localize "Author"}}:</strong> <span class="author">{{this.author}}</span></li>
+				<ul class="package-metadata tags links">
 					{{#if this.url}}
-					<li><a href="{{this.url}}" target="_blank"><strong>{{localize "URL"}}</a></strong></li>
+					<li class="tag">
+						<a href="{{this.url}}" target="_blank">
+							<span class="short"><i class="fas fa-globe"></i></span>
+							<span class="long">{{localize "ZAPM.labels.links.website"}}</span>
+						</a>
+					</li>
 					{{/if}}
 					{{#if this.readme}}
-					<li><strong><a href="{{this.readme}}" target="_blank">{{localize "MODMANAGE.Readme"}}</a></strong></li>
+					<li class="tag">
+						<a href="{{this.readme}}" target="_blank">
+							<span class="short"><i class="fas fa-scroll"></i></span>
+							<span class="long">{{localize "ZAPM.labels.links.readme"}}</span>
+						</a>
+					</li>
 					{{/if}}
 					{{#if this.bugs}}
-					<li><strong><a href="{{this.bugs}}" target="_blank">{{localize "MODMANAGE.Bugs"}}</a></strong></li>
+					<li class="tag">
+						<a href="{{this.bugs}}" target="_blank">
+							<span class="short"><i class="fas fa-bug"></i></span>
+							<span class="long">{{localize "ZAPM.labels.links.bugs"}}</span>
+						</a>
+					</li>
 					{{/if}}
+					
+				</ul>
 					{{#if this.dependencies}}
 					<li>
 						<strong>{{ localize "MODMANAGE.Dependencies" }}:</strong>
@@ -81,11 +107,10 @@
 						{{/each}}
 					</li>
 					{{/if}}
-				</ul>
 			</section>
 			<section class="package-description">
+				<h4>{{ localize "ZAPM.labels.packageDescription" }}</h4>
 				{{{this.description}}}
-				
 			</section>
 		</li>
 		{{ else }}
