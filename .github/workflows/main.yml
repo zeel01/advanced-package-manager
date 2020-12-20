@@ -33,7 +33,7 @@ jobs:
         download: https://github.com/${{github.repository}}/releases/download/${{steps.get_version.outputs.version}}/pkg-manager.zip
 
     # Create a zip file with all files required by the module to add to the release
-    - run: zip -r ./pkg-manager.zip module.json pkg-manager.js pkg-manager.css module-management.html lang/
+    - run: zip -r ./pkg-manager.zip module.json pkg-manager.js pkg-manager.css module-management.html lang/ assets/
 
     # Create a release for this specific version
     - name: Update Release with Files
