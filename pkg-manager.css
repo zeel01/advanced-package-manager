@@ -1,18 +1,18 @@
 .zapm .package-list {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 1em 1em;
 	align-content: start;
 }
 
 .zapm .package {
-	position: relative;
 	display: grid;
 	gap: 4px 4px;
 	grid-template-rows: auto 1fr;
-	grid-template-columns: 1em 6em 1fr;
+	grid-template-columns: 6em 1fr;
 	padding: 4px 4px 4px 4px;
 	border: 1px solid #80808066;
+	/* overflow: hidden; */
 }
 .zapm .package-info {
 	padding-left: 4px;
@@ -23,9 +23,8 @@
 }
 .zapm .package-image {
 	grid-row: 1;
-	grid-column: 2;
+	grid-column: 1;
 	margin: 0;
-	width: 6em;
 }
 .zapm .module-icon {
 	width: 100%;
@@ -37,25 +36,55 @@
 	fill: #939393;
 }
 .zapm .package .package-overview {
-	/* flex: 1; */
 	grid-row: 1;
-	grid-column-start: 3;
-	grid-column-end: -1;
-	/* grid-column: auto; */
+	grid-column: 2 / -1;
+	overflow: hidden;
 }
-.zapm .package-title {
-	display: flex;
+.zapm .package-list .package .package-overview .package-title {
+	text-decoration: none;
+}
+.zapm h2.module-title,
+.zapm h3.author {
+	line-height: 1em;
+	margin: 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	display: block;
+	width: 100%;
+	overflow: hidden;
+}
+.zapm h2.module-title {
+	font-size: 1.1em;
+	cursor: pointer;
+	box-shadow: 0px 3px 12px -6px black;
+	font-weight: bold;
+	margin-bottom: .3em;
+	padding-right: .85em;
+	position: relative;
+}
+.zapm h3.author {
+	font-size: .95em;
+	font-style: italic;
+	margin-bottom: .2em;
+}
+
+.zapm .author-label {
+	font-weight: bold;
+}
+.zapm .author-label:after {
+	content: ":";
 }
 .zapm .package-toggle {
 	position: absolute;
-	top: 0px;
-	left: 0px;
+	top: -3px;
+	right: -2px;
 	margin: 0;
 	width: 1em;
 	height: 1em;
 }
 .zapm .package-toggle input {
 	width: 1em;
+	margin: 0;
 }
 
 #module-management .zapm .package-list .package .package-metadata {
