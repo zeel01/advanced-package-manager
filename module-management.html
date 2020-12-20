@@ -16,113 +16,113 @@
 
 	<ul id="module-list" class="directory-list package-list">
 		{{#each modules}}
-		<li class="package {{css}}" data-module-name="{{this.name}}">
-			<figure class="package-image">
-				{{~#if this.icon}}
-					<img class="module-icon" src="{{this.icon}}">
-				{{else if this.active}}
-					{{> "modules/advanced-package-manager/assets/cardboard-box.hbs"}}
-				{{else}}
-					{{> "modules/advanced-package-manager/assets/cardboard-box-closed.hbs"}}
-				{{/if~}}
-			</figure>
-			<section class="package-overview">
-				<label class="package-title checkbox">
-					<h2 class="module-title">
-						{{~this.title~}}
-						<figure class="package-toggle">
-							<input type="checkbox" 
-								class="active" 
-								name="{{this.name}}" 
-								data-dtype="Boolean" 
-								{{checked this.active}}/>
-						</figure>
-					</h2>
-				</label>
-				<h3 class="author">
-					<span class="author-label">{{localize "Author"}}</span>
-					<span class="author-name" title="{{this.author}}">{{this.author}}</span>
-				</h3>
-				<ul class="tags info">
-					<li class="tag version">
-						v{{ this.version }}
-					</li>
-					{{#if this.incompatible }}
-					<li class="tag unknown">
-						<span class="short"><i class="fas fa-exclamation-circle"></i></span>
-						<span class="long">{{ this.incompatible }}</span>
-					</li>
-					{{/if}}
-					{{#if (or this.scripts this.esmodules)}}
-					<li class="tag javascript">
-						<span class="short"><i class="fas fa-code"></i></span>
-						<span class="long">JavaScript</span>
-					</li>
-					{{/if}}
-					{{#if this.styles}}
-					<li class="tag css">
-						<span class="short"><i class="fas fa-paint-brush"></i></span>
-						<span class="long">CSS</span>
-					</li>
-					{{/if}}
-					{{#if this.packs}}
-					<li class="tag compendium">
-						<span class="short"><i class="fas fa-atlas"></i></span>
-						<span class="long">Compendium</span>
-					</li>
-					{{/if}}
-					{{#if this.url}}
-						<li class="tag">
-							<a href="{{this.url}}" target="_blank">
-								<span class="short"><i class="fas fa-globe"></i></span>
-								<span class="long">{{localize "ZAPM.labels.links.website"}}</span>
-							</a>
+		<li>
+			<div class="package {{css}}" data-module-name="{{this.name}}">
+				<figure class="package-image">
+					{{~#if this.icon}}
+						<img class="module-icon" src="{{this.icon}}">
+					{{else if this.active}}
+						{{> "modules/advanced-package-manager/assets/cardboard-box.hbs"}}
+					{{else}}
+						{{> "modules/advanced-package-manager/assets/cardboard-box-closed.hbs"}}
+					{{/if~}}
+				</figure>
+				<section class="package-overview">
+					<label class="package-title checkbox">
+						<h2 class="module-title">
+							{{~this.title~}}
+							<figure class="package-toggle">
+								<input type="checkbox" 
+									class="active" 
+									name="{{this.name}}" 
+									data-dtype="Boolean" 
+									{{checked this.active}}/>
+							</figure>
+						</h2>
+					</label>
+					<h3 class="author">
+						<span class="author-label">{{localize "Author"}}</span>
+						<span class="author-name" title="{{this.author}}">{{this.author}}</span>
+					</h3>
+					<ul class="tags info">
+						<li class="tag version">
+							v{{ this.version }}
 						</li>
-					{{/if}}
-					{{#if this.readme}}
-						<li class="tag">
-							<a href="{{this.readme}}" target="_blank">
-								<span class="short"><i class="fas fa-scroll"></i></span>
-								<span class="long">{{localize "ZAPM.labels.links.readme"}}</span>
-							</a>
+						{{#if this.incompatible }}
+						<li class="tag unknown">
+							<span class="short"><i class="fas fa-exclamation-circle"></i></span>
+							<span class="long">{{ this.incompatible }}</span>
 						</li>
-					{{/if}}
-					{{#if this.bugs}}
-						<li class="tag">
-							<a href="{{this.bugs}}" target="_blank">
-								<span class="short"><i class="fas fa-bug"></i></span>
-								<span class="long">{{localize "ZAPM.labels.links.bugs"}}</span>
-							</a>
+						{{/if}}
+						{{#if (or this.scripts this.esmodules)}}
+						<li class="tag javascript">
+							<span class="short"><i class="fas fa-code"></i></span>
+							<span class="long">JavaScript</span>
 						</li>
-					{{/if}}
-				</ul>
-				<ul class="tags interactions">
-					{{#if this.dependencies}}
-					<li class="tag interaction-tag dependency">
-						<span class="interaction-lable">{{ localize "MODMANAGE.Dependencies" }}</span>
-						<ul class="interaction-list">
-							{{#each this.dependencies}}
-							<li class="interaction">{{ this }}</li>
-							{{/each}}
-						</ul>
-					</li>
-					{{/if}}
-					{{#if this.conflicts}}
-						<li>
-							<strong>{{ localize "MODMANAGE.Dependencies" }}:</strong>
-							{{#each this.dependencies}}
-								<span class="tag">{{ this }}</span>
-							{{/each}}
+						{{/if}}
+						{{#if this.styles}}
+						<li class="tag css">
+							<span class="short"><i class="fas fa-paint-brush"></i></span>
+							<span class="long">CSS</span>
 						</li>
-					{{/if}}
-				</ul>
-			</section>
-			<section class="package-description">
-				<div class="expandable" onclick="this.focus()" tabindex="-1">
+						{{/if}}
+						{{#if this.packs}}
+						<li class="tag compendium">
+							<span class="short"><i class="fas fa-atlas"></i></span>
+							<span class="long">Compendium</span>
+						</li>
+						{{/if}}
+						{{#if this.url}}
+							<li class="tag">
+								<a href="{{this.url}}" target="_blank">
+									<span class="short"><i class="fas fa-globe"></i></span>
+									<span class="long">{{localize "ZAPM.labels.links.website"}}</span>
+								</a>
+							</li>
+						{{/if}}
+						{{#if this.readme}}
+							<li class="tag">
+								<a href="{{this.readme}}" target="_blank">
+									<span class="short"><i class="fas fa-scroll"></i></span>
+									<span class="long">{{localize "ZAPM.labels.links.readme"}}</span>
+								</a>
+							</li>
+						{{/if}}
+						{{#if this.bugs}}
+							<li class="tag">
+								<a href="{{this.bugs}}" target="_blank">
+									<span class="short"><i class="fas fa-bug"></i></span>
+									<span class="long">{{localize "ZAPM.labels.links.bugs"}}</span>
+								</a>
+							</li>
+						{{/if}}
+					</ul>
+					<ul class="tags interactions">
+						{{#if this.dependencies}}
+						<li class="tag interaction-tag dependency">
+							<span class="interaction-lable">{{ localize "MODMANAGE.Dependencies" }}</span>
+							<ul class="interaction-list">
+								{{#each this.dependencies}}
+								<li class="interaction">{{ this }}</li>
+								{{/each}}
+							</ul>
+						</li>
+						{{/if}}
+						{{#if this.conflicts}}
+							<li>
+								<strong>{{ localize "MODMANAGE.Dependencies" }}:</strong>
+								{{#each this.dependencies}}
+									<span class="tag">{{ this }}</span>
+								{{/each}}
+							</li>
+						{{/if}}
+					</ul>
+				</section>
+				<section class="package-description">
 					<h4>{{ localize "ZAPM.labels.packageDescription" }}</h4>
 					{{{this.description}}}
-				</div>
-			</section>
+				</section>
+			</div>
 		</li>
 		{{ else }}
 		<p class="notes">{{ localize "MODMANAGE.None" }}</p>
