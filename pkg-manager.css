@@ -75,6 +75,10 @@
 	object-fit: contain;
 	border: none;
 	border-radius: .2em;
+	opacity: .5;
+}
+.zapm .package.active .module-icon {
+	opacity: unset;
 }
 .zapm svg.module-icon {
 	fill: #00000030;
