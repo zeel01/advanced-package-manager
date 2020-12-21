@@ -6,7 +6,9 @@
 	gap: 1em 1em;
 	align-content: start;
 }
-
+.zapm .package-list li.hidden {
+	display: none;
+}
 .zapm .package {
 	display: grid;
 	gap: 4px 4px;

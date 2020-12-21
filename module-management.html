@@ -19,8 +19,8 @@
 
 	<ul id="module-list" class="directory-list package-list">
 		{{#each modules}}
-		<li>
-			<div class="package{{css}}{{#if ../expanded}} expanded{{/if}}" data-module-name="{{this.name}}">
+		<li data-module-name="{{this.name}}">
+			<div class="package{{css}}{{#if ../expanded}} expanded{{/if}}" >
 				<figure class="package-image">
 					{{~#if this.icon}}
 						<img class="module-icon" src="{{this.icon}}">
