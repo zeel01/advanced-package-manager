@@ -1,9 +1,34 @@
 class AdvancedPackageManager extends ModuleManagement {
+	static get namespace() { return "advanced-package-manager"; }
+	static registerSettings() {
+		game.settings.register(AdvancedPackageManager.namespace, "application-width", {
+			name: "application-width",
+			scope: "client",
+			config: false,
+			type: String,
+			default: "1175"
+		});
+		game.settings.register(AdvancedPackageManager.namespace, "application-height", {
+			name: "application-height",
+			scope: "client",
+			config: false,
+			type: String,
+			default: "auto"
+		});
+	}
+
+	constructor(...args) {
+		super(...args);
+
+		//
+	}
+	
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			template: "modules/advanced-package-manager/module-management.html",
-			width: 1175,
+			width: game.settings.get(AdvancedPackageManager.namespace, "application-width"),
+			height: "auto", //game.settings.get(AdvancedPackageManager.namespace, "application-height"),
 			resizable: true
 		});
 	}
@@ -16,6 +41,18 @@ class AdvancedPackageManager extends ModuleManagement {
 		this.prepareAuthors(data);
 
 		return data;
+	}
+	async _onResize() {
+		await game.settings.set(
+			this.constructor.namespace,
+			"application-width",
+			this.position.width
+		);
+		await game.settings.set(
+			this.constructor.namespace,
+			"application-height",
+			this.position.height
+		);
 	}
 
 	async prepareSVGs() {
@@ -44,6 +81,11 @@ class AdvancedPackageManager extends ModuleManagement {
 		}
 	}
 }
+
+
+Hooks.once("init", AdvancedPackageManager.registerSettings);
+
+/******************************************************************/
 
 Hooks.once("ready", () => {
 	new AdvancedPackageManager().render(true);
