@@ -1,6 +1,8 @@
 .zapm .package-list {
 	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
+	/* grid-template-columns: repeat(3, minmax(0, 1fr)); */
+	/* grid-template-columns: auto; */
+	grid-template-columns: repeat(auto-fill, minmax(46ch, 1fr));
 	gap: 1em 1em;
 	align-content: start;
 }
